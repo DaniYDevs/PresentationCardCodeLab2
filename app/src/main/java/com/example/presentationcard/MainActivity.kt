@@ -41,16 +41,13 @@ class MainActivity : ComponentActivity() {
             PresentationCardTheme() {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    //modifier = Modifier.fillMaxSize(),
                     color = Color(0xd2e8d4)
                 ) {
-                    PresentationText(name = "Daniel Díaz",
-                        subp = "Android Developer Extraordinaire",
-                        phone = "+34 601101010",
-                        share = "DaniYDevs",
-                        email = "danidzm18@gmail.com"
-                    )
-                    //GreetingImage(message = "Good Night", from = "Hola")
+                    Presentation(name = getString(R.string.presentation_name),
+                        subp = getString(R.string.presentation_subtitle),
+                        phone = getString(R.string.presentation_phone),
+                        share = getString(R.string.presentation_share),
+                        email = getString(R.string.presentation_email)                    )
                 }
             }
         }
@@ -58,7 +55,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun PresentationText(name: String, subp: String, phone: String,
+fun Presentation(name: String, subp: String, phone: String,
                      share: String, email: String, modifier: Modifier = Modifier) {
     val logo = painterResource(R.drawable.android_logo)
     val phonei = painterResource(R.drawable.baseline_local_phone_24)
@@ -181,13 +178,10 @@ fun PresentationText(name: String, subp: String, phone: String,
 @Composable
 fun PresentationCardPreview() {
     PresentationCardTheme() {
-        //Greeting("Daniel")
-        PresentationText(name = "Daniel Díaz",
-            subp = "Android Developer Extraordinaire",
-            phone = "+34 601101010",
-            share = "DaniYDevs",
-            email = "danidzm18@gmail.com"
-        )
-        //GreetingImage(message = "Good Night", from = "Hola")
+        Presentation(name = stringResource(R.string.presentation_name),
+            subp = stringResource(R.string.presentation_subtitle),
+            phone = stringResource(R.string.presentation_phone),
+            share = stringResource(R.string.presentation_share),
+            email = stringResource(R.string.presentation_email))
     }
 }

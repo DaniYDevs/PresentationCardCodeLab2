@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">PresentationCard</string>
+    <string name="presentation_name">Daniel Díaz</string>
+    <string name="presentation_subtitle">Android Developer Extraordinaire</string>
+    <string name="presentation_phone">+34 601101010</string>
+    <string name="presentation_share">DaniYDevs</string>
+    <string name="presentation_email">danidzm18@gmail.com</string>
 </resources>
