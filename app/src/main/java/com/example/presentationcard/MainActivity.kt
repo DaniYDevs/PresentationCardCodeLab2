@@ -10,8 +10,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -58,14 +60,31 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun PresentationText(name: String, subp: String, phone: String,
                      share: String, email: String, modifier: Modifier = Modifier) {
+    val logo = painterResource(R.drawable.android_logo)
+    val phonei = painterResource(R.drawable.baseline_local_phone_24)
+    val sharei = painterResource(R.drawable.baseline_share_24)
+    val emaili = painterResource(R.drawable.baseline_email_24)
     Box(contentAlignment = Alignment.Center,
     modifier = Modifier
         .fillMaxSize()
         .background(Color(0xFFD2E8D4))) {
         Column(
             verticalArrangement = Arrangement.Center,
-            modifier = modifier.background(Color(0xd2e8d4))
+            horizontalAlignment = Alignment.CenterHorizontally
+            //modifier = modifier.background(Color(0xd2e8d4))
         ) {
+            Box(contentAlignment = Alignment.Center,
+                modifier = Modifier
+                    .size(150.dp, 150.dp)
+                    .background(Color(0xFF073042))) {
+                Image(
+                    painter = logo,
+                    contentDescription = null,
+                    //contentScale = ContentScale.Crop,
+                    //alpha = 0.5F
+                    modifier = Modifier.size(130.dp)
+                )
+            }
             Text(
                 text = name,
                 fontSize = 55.sp,
@@ -89,35 +108,71 @@ fun PresentationText(name: String, subp: String, phone: String,
         modifier = Modifier
             .fillMaxSize()
             .background(Color(0xd2e8d4))) {
-        Column() {
-            Text(
-                text = phone,
-                fontSize = 16.sp,
-                textAlign = TextAlign.Start,
-                //fontWeight = FontWeight.Light,
-                modifier = Modifier
-                    .padding(bottom = 16.dp)
-                    .align(alignment = Alignment.Start)
-            )
-            Text(
-                text = share,
-                fontSize = 16.sp,
-                textAlign = TextAlign.Start,
-                //fontWeight = FontWeight.Light,
-                modifier = Modifier
-                    .padding(bottom = 16.dp)
-                    .align(alignment = Alignment.Start)
-            )
-            Text(
-                text = email,
-                fontSize = 16.sp,
-                textAlign = TextAlign.Start,
-                //fontWeight = FontWeight.Light,
-                modifier = Modifier
+        Row(horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = modifier.size(230.dp, 150.dp)) {
+            Box(contentAlignment = Alignment.CenterStart) {
+                Column() {
+                    Image(
+                        painter = phonei,
+                        contentDescription = null,
+                        //contentScale = ContentScale.Crop,
+                        //alpha = 0.5F
+                        modifier = Modifier
+                            .size(40.dp)
+                            .padding(bottom = 16.dp)
+                    )
+                    Image(
+                        painter = sharei,
+                        contentDescription = null,
+                        //contentScale = ContentScale.Crop,
+                        //alpha = 0.5F
+                        modifier = Modifier
+                            .size(40.dp)
+                            .padding(bottom = 16.dp)
+                    )
+                    Image(
+                        painter = emaili,
+                        contentDescription = null,
+                        //contentScale = ContentScale.Crop,
+                        //alpha = 0.5F
+                        modifier = Modifier
+                            .size(40.dp)
+                            .padding(bottom = 16.dp)
+                    )
+                }
+            }
 
-                    .padding(bottom = 76.dp)
-                    .align(alignment = Alignment.Start)
-            )
+            Box(contentAlignment = Alignment.BottomCenter) {
+                Column(verticalArrangement = Arrangement.Bottom) {
+                    Text(
+                        text = phone,
+                        fontSize = 16.sp,
+                        textAlign = TextAlign.Start,
+                        //fontWeight = FontWeight.Light,
+                        modifier = Modifier
+                            .padding(bottom = 20.dp)
+                        //.align(alignment = Alignment.Start)
+                    )
+                    Text(
+                        text = share,
+                        fontSize = 16.sp,
+                        textAlign = TextAlign.Start,
+                        //fontWeight = FontWeight.Light,
+                        modifier = Modifier
+                            .padding(bottom = 17.dp)
+                        //.align(alignment = Alignment.Start)
+                    )
+                    Text(
+                        text = email,
+                        fontSize = 16.sp,
+                        textAlign = TextAlign.Start,
+                        fontWeight = FontWeight.Light,
+                        modifier = Modifier
+                            .padding(bottom = 46.dp)
+                        //.align(alignment = Alignment.Start)
+                    )
+                }
+            }
         }
     }
 }
