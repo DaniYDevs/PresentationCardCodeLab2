@@ -163,7 +163,7 @@ fun Presentation(name: String, subp: String, phone: String,
                         text = email,
                         fontSize = 16.sp,
                         textAlign = TextAlign.Start,
-                        fontWeight = FontWeight.Light,
+                        //fontWeight = FontWeight.Light,
                         modifier = Modifier
                             .padding(bottom = 46.dp)
                         //.align(alignment = Alignment.Start)
